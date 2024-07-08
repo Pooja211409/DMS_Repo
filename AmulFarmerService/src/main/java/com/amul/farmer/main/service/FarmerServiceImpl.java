@@ -10,4 +10,7 @@ import com.amul.farmer.main.serviceInterface.FarmerServiceI;
 public class FarmerServiceImpl implements FarmerServiceI{
 	@Autowired private FarmerRepository farmerRepository;
 
+	
+	
+
 }

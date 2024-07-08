@@ -8,6 +8,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class AmulFarmerServiceApplication {
 
 	public static void main(String[] args) {
+		System.out.println("This is client");
 		SpringApplication.run(AmulFarmerServiceApplication.class, args);
 	}
 

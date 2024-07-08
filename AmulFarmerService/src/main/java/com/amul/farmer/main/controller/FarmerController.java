@@ -7,6 +7,7 @@ import com.amul.farmer.main.serviceInterface.FarmerServiceI;
 
 @RestController
 public class FarmerController {
-	@Autowired private FarmerServiceI farmerInterface;
-
+	@Autowired FarmerServiceI farmerInterface;
+	
+	
 }
