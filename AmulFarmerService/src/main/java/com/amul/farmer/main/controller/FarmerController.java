@@ -1,4 +1,6 @@
 package com.amul.farmer.main.controller;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +29,12 @@ public class FarmerController {
 		return new ResponseEntity<FarmerDetails>(fd,HttpStatus.CREATED);
 	}
 
+	@GetMapping("/AllFarmerData")
+	public List<FarmerDetails>fetchAllDataFarmer(){
+	List<FarmerDetails>	fd=farmerInterface.fetchAllDataFarmer();
+	return fd;
+	
+	}
 	
 	
 }

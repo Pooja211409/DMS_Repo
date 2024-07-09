@@ -72,4 +72,10 @@ public class FarmerServiceImpl implements FarmerServiceI{
 		return fd;
 	}
 
+	@Override
+	public List<FarmerDetails> fetchAllDataFarmer() {
+		Iterable<FarmerDetails>fd=farmerRepository.findAll();
+		return (List<FarmerDetails>) fd;
+	}
+
 }
