@@ -26,15 +26,36 @@ public class FarmerDetails {
 	private String address;
 	private int age;
 	private String mail;
-	private byte adhar;
 	@Lob
 	@Column(length = 999999999)
+	private byte[] adhar;	
 	@OneToMany(cascade = CascadeType.ALL)
-	private Set<CowDetails> cow=new HashSet<>();
-	@Lob
-	@Column(length = 999999999)
+	private Set<CowDetails> cow=new HashSet<>();	
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<BuffaloDetails> buffalo=new HashSet<>();
 	
 
 }
+ 
+//{
+//	"farmerId":101,
+	//"farmerName":"Rahul Gadekar",
+   // "address":"Amravati",
+	//"age":26,
+	//"mail":"rahulgadekar12@gmail.com",
+	//"cow":[{
+	//	"cowBreed":"white",
+	//	"cowAge":22,
+	//	"cowNumber":223,
+	//	"averageMilkQuantity":3.0			
+	//}],
+	//"buffalo":[{
+	//	"buffaloBreed":"Black",
+	//	"buffaloAge":24,
+	//	"buffaloNumber":101,
+	//	"averageMilkQuantity":4.0
+	//}]
+	
+			
+//}
+
