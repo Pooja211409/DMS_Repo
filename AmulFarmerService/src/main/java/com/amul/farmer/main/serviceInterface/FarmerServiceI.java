@@ -2,6 +2,7 @@ package com.amul.farmer.main.serviceInterface;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,4 +17,9 @@ public interface FarmerServiceI {
 
 	public List<FarmerDetails> fetchAllDataFarmer();
 
-}
+	public FarmerDetails displaySingleDataByFarmerId(int farmerId);
+
+	
+  
+	}
+

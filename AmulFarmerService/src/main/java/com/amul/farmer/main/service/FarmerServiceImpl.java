@@ -2,6 +2,7 @@ package com.amul.farmer.main.service;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +77,13 @@ public class FarmerServiceImpl implements FarmerServiceI{
 	public List<FarmerDetails> fetchAllDataFarmer() {
 		Iterable<FarmerDetails>fd=farmerRepository.findAll();
 		return (List<FarmerDetails>) fd;
+	}
+
+	@Override
+	public FarmerDetails displaySingleDataByFarmerId(int farmerId) {
+		
+		Optional<FarmerDetails> fd=farmerRepository.findById(farmerId);
+		return fd.get()  ;
 	}
 
 }
