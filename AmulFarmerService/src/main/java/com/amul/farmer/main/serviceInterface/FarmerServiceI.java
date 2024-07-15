@@ -7,6 +7,9 @@ import java.util.Optional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.amul.farmer.main.model.FarmerDetails;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.github.fge.jsonpatch.JsonPatch;
+import com.github.fge.jsonpatch.JsonPatchException;
 
 
 public interface FarmerServiceI {
@@ -18,6 +21,9 @@ public interface FarmerServiceI {
 	public List<FarmerDetails> fetchAllDataFarmer();
 
 	public FarmerDetails displaySingleDataByFarmerId(int farmerId);
+	public FarmerDetails patchFarmerData(int farmerId, JsonPatch patch) throws JsonProcessingException, IllegalArgumentException, JsonPatchException;
+
+	public void deleteData(int farmerId);
 
 	
   

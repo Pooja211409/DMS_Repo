@@ -1,6 +1,5 @@
 package com.amul.farmer.main.model;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -9,11 +8,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,6 +22,7 @@ import lombok.NoArgsConstructor;
 public class FarmerDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "farmer_id")
 	private int farmerId;
 	private String farmerName;
 	private String address;
@@ -28,11 +30,15 @@ public class FarmerDetails {
 	private String mail;
 	@Lob
 	@Column(length = 999999999)
-	private byte[] adhar;	
-	@OneToMany(cascade = CascadeType.ALL)
-	private Set<CowDetails> cow=new HashSet<>();	
-	@OneToMany(cascade = CascadeType.ALL)
-	private Set<BuffaloDetails> buffalo=new HashSet<>();
+	private byte[] adhar;
+	
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "farmer_id", referencedColumnName = "farmer_id")
+	private Set<CowDetails> cow;
+	
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "farmer_id", referencedColumnName = "farmer_id")
+	private Set<BuffaloDetails> buffalo;
 	
 
 }
