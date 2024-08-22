@@ -1,36 +1,32 @@
 package com.amul.farmer.main.controller;
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-<<<<<<< HEAD
-import org.springframework.web.bind.annotation.DeleteMapping;
+
+
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-=======
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
->>>>>>> stash
-
-<<<<<<< HEAD
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-=======
->>>>>>> stash
+
+
+
+
 import com.amul.farmer.main.model.FarmerDetails;
 import com.amul.farmer.main.serviceInterface.FarmerServiceI;
 
 @RestController
 public class FarmerController {
-<<<<<<< HEAD
+
 
 
 	@Autowired private FarmerServiceI farmerInterface;
@@ -51,6 +47,7 @@ public class FarmerController {
 	return fd;
 	}
 
+
 	
 	@PatchMapping("/updateDataBuffalo/{id}")
 	public ResponseEntity<FarmerDetails> updateBuffaloDetails(@RequestPart ("buffalo")String json,@RequestPart("image") MultipartFile img,
@@ -70,16 +67,17 @@ public class FarmerController {
 		
 	}
 	
-=======
-	@Autowired FarmerServiceI farmerInterface;
-	@PatchMapping("/updateDataBuffalo/{id}")
-	public ResponseEntity<FarmerDetails> updateBuffaloDetails(@RequestPart ("buffalo")String json,@RequestPart("image") MultipartFile img)
-	{
-		FarmerDetails fData=farmerInterface.updateBuffalo(json,img);
-		return new ResponseEntity<FarmerDetails>(fData,HttpStatus.OK);
+
+	
+
+	@GetMapping("/getFarmerSingleData/{farmerId}")
+		public ResponseEntity<FarmerDetails> getFarmerSingleData(@PathVariable int farmerId){
+		
+		FarmerDetails farmerdetails =farmerInterface.displaySingleDataByFarmerId(farmerId);
+		
+			return new ResponseEntity<FarmerDetails>(farmerdetails,HttpStatus.OK);
 		
 	}
->>>>>>> stash
-	
+
 	
 }

@@ -5,6 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 import java.util.List;
+import java.util.Optional;
 
 
 
@@ -26,6 +27,7 @@ public interface FarmerServiceI {
 
 	public List<FarmerDetails> fetchAllDataFarmer();
 
+<<<<<<< HEAD
 
 	public FarmerDetails updateBuffalo(int id, String json, MultipartFile img);
 	public FarmerDetails AddNewCow (String json,MultipartFile img,int id);
@@ -36,3 +38,11 @@ public interface FarmerServiceI {
 	public FarmerDetails updateBuffalo(String json, MultipartFile img);
 >>>>>>> stash
 }
+=======
+	public FarmerDetails displaySingleDataByFarmerId(int farmerId);
+
+	
+  
+	}
+
+>>>>>>> branch 'main' of https://github.com/Pooja211409/DMS_Repo.git

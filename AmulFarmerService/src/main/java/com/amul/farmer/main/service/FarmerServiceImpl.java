@@ -1,6 +1,12 @@
 package com.amul.farmer.main.service;
 
 import java.io.IOException;
+<<<<<<< HEAD
+=======
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+>>>>>>> branch 'main' of https://github.com/Pooja211409/DMS_Repo.git
 
 <<<<<<< HEAD
 import java.util.List;
@@ -151,6 +157,7 @@ public class FarmerServiceImpl implements FarmerServiceI{
 		return fData;
 	}
 
+<<<<<<< HEAD
 	
 	@Override                     // 1                 2               3
 	public FarmerDetails AddNewCow(String cowjson, MultipartFile img,int id) {
@@ -192,5 +199,13 @@ public class FarmerServiceImpl implements FarmerServiceI{
 	}
 
 	
+=======
+	@Override
+	public FarmerDetails displaySingleDataByFarmerId(int farmerId) {
+		
+		Optional<FarmerDetails> fd=farmerRepository.findById(farmerId);
+		return fd.get()  ;
+	}
+>>>>>>> branch 'main' of https://github.com/Pooja211409/DMS_Repo.git
 
 }
