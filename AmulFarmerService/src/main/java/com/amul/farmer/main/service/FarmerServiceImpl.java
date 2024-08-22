@@ -2,27 +2,37 @@ package com.amul.farmer.main.service;
 
 import java.io.IOException;
 
+<<<<<<< HEAD
 import java.util.List;
 import java.util.Optional;
 
+=======
+>>>>>>> stash
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.amul.farmer.main.model.BuffaloDetails;
+<<<<<<< HEAD
 
 import com.amul.farmer.main.model.CowDetails;
 
 
+=======
+>>>>>>> stash
 import com.amul.farmer.main.model.FarmerDetails;
 import com.amul.farmer.main.repository.FarmerRepository;
 import com.amul.farmer.main.serviceInterface.FarmerServiceI;
+<<<<<<< HEAD
 import com.cjc.main.exception.cowNotFoundException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
 
 
+=======
+import com.fasterxml.jackson.core.JsonProcessingException;
+>>>>>>> stash
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
@@ -114,6 +124,31 @@ public class FarmerServiceImpl implements FarmerServiceI{
 	public List<FarmerDetails> fetchAllDataFarmer() {
 		Iterable<FarmerDetails>fd= farmerRepository.findAll();
 		return (List<FarmerDetails>) fd;
+	}
+
+	@Override
+	public FarmerDetails updateBuffalo(String json, MultipartFile img) {
+		
+		ObjectMapper mapper=new ObjectMapper();
+		FarmerDetails f=null;
+		BuffaloDetails buffalo=new BuffaloDetails();
+		try {
+			f=mapper.readValue(json,FarmerDetails.class);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(img!=null)
+		{
+			try {
+				buffalo.setBuffaloImage(img.getBytes());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		FarmerDetails fData=farmerRepository.save(f);
+		return fData;
 	}
 
 	

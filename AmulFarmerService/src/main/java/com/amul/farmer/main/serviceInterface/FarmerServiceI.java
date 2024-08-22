@@ -1,6 +1,7 @@
 package com.amul.farmer.main.serviceInterface;
 
 import org.springframework.web.multipart.MultipartFile;
+<<<<<<< HEAD
 
 
 import java.util.List;
@@ -10,10 +11,13 @@ import java.util.List;
 import com.amul.farmer.main.model.FarmerDetails;
 
 
+=======
+>>>>>>> stash
 
-
+import com.amul.farmer.main.model.FarmerDetails;
 
 public interface FarmerServiceI {
+<<<<<<< HEAD
 
 
 
@@ -28,4 +32,7 @@ public interface FarmerServiceI {
 
 	
 
+=======
+	public FarmerDetails updateBuffalo(String json, MultipartFile img);
+>>>>>>> stash
 }
