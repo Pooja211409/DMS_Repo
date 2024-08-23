@@ -49,12 +49,12 @@ public class FarmerServiceImpl implements FarmerServiceI{
 		}
         if(cowImage!=null)
         {
-        	for(CowDetails cow :f.getCow())
+        for(CowDetails cow :f.getCow())
         	try {
 				cow.setCowImage(cowImage.getBytes());
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			// TODO Auto-generated catch block
+		e.printStackTrace();
 			}
         }
         if(buffaloImage!=null)
