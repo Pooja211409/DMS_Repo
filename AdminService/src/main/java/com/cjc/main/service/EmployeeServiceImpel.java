@@ -1,6 +1,7 @@
 package com.cjc.main.service;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,6 +40,11 @@ public class EmployeeServiceImpel implements EmployeeServiceInterface {
 		
 		
 		return employeeRepository.save(employee); 
+	}
+	@Override
+	public List<Employee> fetchAllEmployee() {
+		List<Employee> emp= (List<Employee>) employeeRepository.findAll();
+		return  emp;
 	}
 
 }
