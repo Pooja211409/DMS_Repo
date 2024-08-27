@@ -1,44 +1,26 @@
 package com.amul.farmer.main.service;
 
 import java.io.IOException;
-<<<<<<< HEAD
-=======
+
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
->>>>>>> branch 'main' of https://github.com/Pooja211409/DMS_Repo.git
 
-<<<<<<< HEAD
-import java.util.List;
-import java.util.Optional;
 
-=======
->>>>>>> stash
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.amul.farmer.main.model.BuffaloDetails;
-<<<<<<< HEAD
-
 import com.amul.farmer.main.model.CowDetails;
-
-
-=======
->>>>>>> stash
 import com.amul.farmer.main.model.FarmerDetails;
 import com.amul.farmer.main.repository.FarmerRepository;
 import com.amul.farmer.main.serviceInterface.FarmerServiceI;
-<<<<<<< HEAD
 import com.cjc.main.exception.cowNotFoundException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
 
-
-=======
-import com.fasterxml.jackson.core.JsonProcessingException;
->>>>>>> stash
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
@@ -69,6 +51,7 @@ public class FarmerServiceImpl implements FarmerServiceI{
 				
 				e.printStackTrace();
 			}
+
 			  if(cowImage!=null)
 		        {
 		        	for(CowDetails cow :f.getCow())
@@ -92,6 +75,7 @@ public class FarmerServiceImpl implements FarmerServiceI{
 		        	}
 		        }
 		       
+
 			}
 		 FarmerDetails fd=farmerRepository.save(f);
 			return fd;
@@ -157,8 +141,7 @@ public class FarmerServiceImpl implements FarmerServiceI{
 		return fData;
 	}
 
-<<<<<<< HEAD
-	
+
 	@Override                     // 1                 2               3
 	public FarmerDetails AddNewCow(String cowjson, MultipartFile img,int id) {
 		
@@ -199,13 +182,13 @@ public class FarmerServiceImpl implements FarmerServiceI{
 	}
 
 	
-=======
+
 	@Override
 	public FarmerDetails displaySingleDataByFarmerId(int farmerId) {
 		
 		Optional<FarmerDetails> fd=farmerRepository.findById(farmerId);
 		return fd.get()  ;
 	}
->>>>>>> branch 'main' of https://github.com/Pooja211409/DMS_Repo.git
+
 
 }
