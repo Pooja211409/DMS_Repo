@@ -1,12 +1,14 @@
 package com.cjc.main.model;
 
-import jakarta.annotation.Generated;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,6 +32,8 @@ public class Employee {
 	private String userName;
 	
 	private String password;
+	@Lob
+	@Column(length =999999999)
 	private byte[] profileImage;
 
 }
