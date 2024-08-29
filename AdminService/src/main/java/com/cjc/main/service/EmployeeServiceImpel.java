@@ -2,6 +2,7 @@ package com.cjc.main.service;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,6 +46,13 @@ public class EmployeeServiceImpel implements EmployeeServiceInterface {
 	public List<Employee> fetchAllEmployee() {
 		List<Employee> emp= (List<Employee>) employeeRepository.findAll();
 		return  emp;
+	}
+	@Override
+	public Employee authenticateEmployee(String userName, String password) {
+	Optional<Employee> emp= employeeRepository.findByUserNameAndPassword(userName, password);
+	
+	if (emp.isPresent())  return emp.get();
+	else throw new RuntimeException("Enter Valid Crediantials");
 	}
 
 }

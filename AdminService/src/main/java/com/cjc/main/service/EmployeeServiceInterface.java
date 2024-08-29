@@ -14,5 +14,7 @@ public interface EmployeeServiceInterface  {
 
 	public List<Employee> fetchAllEmployee();
 
+	public Employee authenticateEmployee(String userName, String password);
+
 	
 }

@@ -1,7 +1,7 @@
 package com.cjc.main.model;
 
 
-import jakarta.annotation.Generated;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -49,7 +49,7 @@ public class Employee {
 //    "email":"gdgadbail@gmail.com",
 //    "Occupation":"developer",
 //    "salary":"10000.00",
-//    "age":"21",
-//    "userType":"ADMIN",
+//   "age":"21",
+//   "userType":"ADMIN",
 //	}
 }
