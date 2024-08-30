@@ -11,3 +11,4 @@ public interface FarmerRepository extends CrudRepository<FarmerDetails, Integer>
 	
 
 }
+

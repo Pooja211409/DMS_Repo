@@ -25,3 +25,10 @@ public class CowDetails {
 	@Column(length = 999999999)
 	private byte[] cowImage;
 }
+//{
+//	"cowBreed":"darkBlack",
+//	"cowAge":16,
+//	"cowNumber":105,
+//	"averageMilkQuantity":5
+//	
+//}
