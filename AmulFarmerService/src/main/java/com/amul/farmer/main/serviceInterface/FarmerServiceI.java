@@ -16,4 +16,7 @@ public interface FarmerServiceI {
 
 	public List<FarmerDetails> fetchAllDataFarmer();
 
+	public FarmerDetails updatefarmerDataByusingId(String farmerJson, MultipartFile adhar, MultipartFile cowImage,
+			MultipartFile buffaloImage,int farmerId);
+
 }
