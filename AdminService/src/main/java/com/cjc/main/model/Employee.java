@@ -33,6 +33,7 @@ public class Employee {
 	private float salary;
 	private int age;
 	@Enumerated(EnumType.STRING)
+	@Column(length=100)
 	private UserType userType;
 	
 	private String userName;

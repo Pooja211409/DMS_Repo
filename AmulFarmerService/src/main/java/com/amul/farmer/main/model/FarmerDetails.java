@@ -36,11 +36,10 @@ public class FarmerDetails {
 	
 
 }
-<<<<<<< HEAD
+
  
 
-=======
->>>>>>> branch 'main' of https://github.com/Pooja211409/DMS_Repo.git
+
 //{
 //	"farmerId":101,
 //	"farmerName":"Rahul Gadekar",
@@ -49,8 +48,8 @@ public class FarmerDetails {
 //	"mail":"rahulgadekar12@gmail.com",
 //	"cow":[{
 //		"cowBreed":"white",
-////		"cowAge":22,
-////		"cowNumber":223,
+//		"cowAge":22,
+//		"cowNumber":223,
 //		"averageMilkQuantity":3.0			
 //	}],
 //	"buffalo":[{
@@ -59,32 +58,5 @@ public class FarmerDetails {
 //		"buffaloNumber":101,
 //		"averageMilkQuantity":4.0
 //	}]
-//	
-//			
 //}
-<<<<<<< HEAD
-=======
 
-/*{
-	"farmerId":101,
-	"farmerName":"Rahul Gadekar",
-   "address":"Amravati",
-	"age":26,
-	"mail":"rahulgadekar12@gmail.com",
-	"cow":[{
-		"cowBreed":"white",
-		"cowAge":22,
-	"cowNumber":223,
-		"averageMilkQuantity":3.0			
-	}],
-	"buffalo":[{
-		"buffaloBreed":"Black",
-		"buffaloAge":24,
-		"buffaloNumber":101,
-		"averageMilkQuantity":4.0
-	}]*/
-	
-
->>>>>>> branch 'main' of https://github.com/Pooja211409/DMS_Repo.git
-
-	

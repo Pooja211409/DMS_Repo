@@ -20,9 +20,7 @@ public interface FarmerServiceI {
 
 	public FarmerDetails updateBuffalo(int id, String json, MultipartFile img);
 	public FarmerDetails AddNewCow (String json,MultipartFile img,int id);
-
-	public FarmerDetails updateBuffalo(String json, MultipartFile img);
-
+	public FarmerDetails AddNewBuffalo (String buffaloJson, MultipartFile buffaloImage, int farmerId);
 	public FarmerDetails displaySingleDataByFarmerId(int farmerId);
 
 	

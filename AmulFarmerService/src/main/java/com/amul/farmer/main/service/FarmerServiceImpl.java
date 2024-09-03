@@ -74,16 +74,12 @@ public class FarmerServiceImpl implements FarmerServiceI{
 					}
 		        	}
 		        }
-		       
-
-			}
+		   }
 		 FarmerDetails fd=farmerRepository.save(f);
 			return fd;
 	}
 
 	public FarmerDetails updateBuffalo(int id,String json, MultipartFile img) {
-		
-		
 		Optional<FarmerDetails> opFarmer = farmerRepository.findById(id);
 		 FarmerDetails fd=opFarmer.get();
 		// Object Mapper is user to convert json String into the desired class instance/object
@@ -115,33 +111,6 @@ public class FarmerServiceImpl implements FarmerServiceI{
 		Iterable<FarmerDetails>fd= farmerRepository.findAll();
 		return (List<FarmerDetails>) fd;
 	}
-
-	@Override
-	public FarmerDetails updateBuffalo(String json, MultipartFile img) {
-		
-		ObjectMapper mapper=new ObjectMapper();
-		FarmerDetails f=null;
-		BuffaloDetails buffalo=new BuffaloDetails();
-		try {
-			f=mapper.readValue(json,FarmerDetails.class);
-		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(img!=null)
-		{
-			try {
-				buffalo.setBuffaloImage(img.getBytes());
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		FarmerDetails fData=farmerRepository.save(f);
-		return fData;
-	}
-
-
 	@Override                     // 1                 2               3
 	public FarmerDetails AddNewCow(String cowjson, MultipartFile img,int id) {
 		
@@ -170,24 +139,46 @@ public class FarmerServiceImpl implements FarmerServiceI{
 				
 			}
 			else
-			{
-				throw new cowNotFoundException("Farmer not found on Id:"+id);
-			}
 			
+				throw new RuntimeException("Cow is not Present");
 		}
 		return null;
-		
-	
-		
-	}
-
-	
-
+	}		
 	@Override
 	public FarmerDetails displaySingleDataByFarmerId(int farmerId) {
 		
 		Optional<FarmerDetails> fd=farmerRepository.findById(farmerId);
 		return fd.get()  ;
+	}
+
+	@Override
+	public FarmerDetails AddNewBuffalo(String buffaloJson, MultipartFile buffaloImage, int farmerId) {
+		Optional<FarmerDetails> fd=farmerRepository.findById(farmerId);
+		if(fd.isPresent())
+		{
+			FarmerDetails originalfd=fd.get();
+			BuffaloDetails buffalo=null;
+			ObjectMapper mapper=new ObjectMapper();
+			        
+			try {
+				buffalo=mapper.readValue(buffaloJson, BuffaloDetails.class);
+				buffalo.setBuffaloImage(buffaloImage.getBytes());
+			} catch (JsonProcessingException e) {
+				e.printStackTrace();
+			}catch(IOException ie)
+			{
+				ie.printStackTrace();
+			}
+			if(buffalo!=null)
+			{
+				originalfd.getBuffalo().add(buffalo);
+				return farmerRepository.save(originalfd);
+			}
+			else
+			
+				throw new RuntimeException("Buffalo is not Present");
+		}
+		return null;
 	}
 
 
