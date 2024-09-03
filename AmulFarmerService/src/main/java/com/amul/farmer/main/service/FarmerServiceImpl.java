@@ -1,34 +1,24 @@
 package com.amul.farmer.main.service;
 
 import java.io.IOException;
-
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.amul.farmer.main.model.BuffaloDetails;
 import com.amul.farmer.main.model.CowDetails;
 import com.amul.farmer.main.model.FarmerDetails;
 import com.amul.farmer.main.repository.FarmerRepository;
 import com.amul.farmer.main.serviceInterface.FarmerServiceI;
-import com.cjc.main.exception.cowNotFoundException;
 import com.fasterxml.jackson.core.JsonProcessingException;
-
 import com.fasterxml.jackson.databind.JsonMappingException;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class FarmerServiceImpl implements FarmerServiceI{
 	@Autowired private FarmerRepository farmerRepository;
 	
-	@Override
-
 	public FarmerDetails SaveFarmerData(String farmerJson, MultipartFile adhar, MultipartFile cowImage,
 			MultipartFile buffaloImage) {
 		ObjectMapper mapper=new ObjectMapper();
@@ -84,28 +74,28 @@ public class FarmerServiceImpl implements FarmerServiceI{
 		 FarmerDetails fd=opFarmer.get();
 		// Object Mapper is user to convert json String into the desired class instance/object
 		 ObjectMapper mapper=new ObjectMapper();
-	
-		BuffaloDetails buffalo=null;
+		FarmerDetails f=null;
+		BuffaloDetails buffalo=new BuffaloDetails();
 		try {
-		  buffalo=mapper.readValue(json,BuffaloDetails.class);
+			f=mapper.readValue(json,FarmerDetails.class);
 		} catch (JsonProcessingException e) {
-			
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if(img!=null)
 		{
-			 try {
+			try {
 				buffalo.setBuffaloImage(img.getBytes());
 			} catch (IOException e) {
-				
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		fd.getBuffalo().add(buffalo);
-		FarmerDetails fData=farmerRepository.save(fd);
+		FarmerDetails fData=farmerRepository.save(f);
 		return fData;
-		
 	}
+	
+		
 	@Override
 	public List<FarmerDetails> fetchAllDataFarmer() {
 		Iterable<FarmerDetails>fd= farmerRepository.findAll();
