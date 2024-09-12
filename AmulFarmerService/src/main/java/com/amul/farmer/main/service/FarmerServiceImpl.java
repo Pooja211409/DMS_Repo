@@ -1,3 +1,4 @@
+
 package com.amul.farmer.main.service;
 
 import java.io.IOException;
@@ -69,6 +70,52 @@ public class FarmerServiceImpl implements FarmerServiceI{
 			return fd;
 	}
 
+	@Override
+	public FarmerDetails updatefarmerDataByusingId(String farmerJson, MultipartFile adhar, MultipartFile cowImage,
+			MultipartFile buffaloImage,int farmerId) {
+		ObjectMapper mapper=new ObjectMapper();
+		Optional<FarmerDetails> fd=farmerRepository.findById(farmerId);
+		FarmerDetails f=fd.get();
+		try {
+			     f=mapper.readValue(farmerJson, FarmerDetails.class);
+		}catch(JsonProcessingException e) {
+			e.printStackTrace();
+		}
+		try {
+			
+				if(adhar!=null)
+			{
+				f.setAdhar(adhar.getBytes());
+			}
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		if (cowImage!=null)
+		{
+			for(CowDetails cow:f.getCow())
+				try {
+					cow.setCowImage(cowImage.getBytes());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+		if(buffaloImage!=null)
+		{
+			for(BuffaloDetails buffalo:f.getBuffalo())
+			{
+				try {
+					buffalo.setBuffaloImage(buffaloImage.getBytes());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	
+		 FarmerDetails fdata=farmerRepository.save(f);
+		return fdata;
+	}
 	public FarmerDetails updateBuffalo(int id,String json, MultipartFile img) {
 		Optional<FarmerDetails> opFarmer = farmerRepository.findById(id);
 		 FarmerDetails fd=opFarmer.get();
@@ -174,3 +221,4 @@ public class FarmerServiceImpl implements FarmerServiceI{
 
 
 }
+
