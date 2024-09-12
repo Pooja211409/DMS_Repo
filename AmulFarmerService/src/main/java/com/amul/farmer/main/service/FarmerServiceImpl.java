@@ -94,6 +94,7 @@ public class FarmerServiceImpl implements FarmerServiceI{
 		FarmerDetails fData=farmerRepository.save(f);
 		return fData;
 	}
+
 	
 		
 	@Override
